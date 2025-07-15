@@ -285,7 +285,7 @@ header {
   margin: 0;
   font-size: 0.93em;
   text-align: left;
-  width: 88px;
+  width: 110px;
   box-sizing: border-box;
   min-width: 64px;
 }
@@ -339,7 +339,7 @@ header {
     font-size: 0.94em;
   }
   .stat-cell {
-    width: 71px;
+    width: 100px;
     font-size: 0.89em;
     padding: 2px 3px 1.5px 3px;
   }
