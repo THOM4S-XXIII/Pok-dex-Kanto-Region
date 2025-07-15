@@ -1,0 +1,376 @@
+/* Globale stiler og font */
+body {
+  background: linear-gradient(115deg, #e23f3e 0%, #478ed9 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Press Start 2P', 'VT323', Arial, sans-serif;
+}
+main {
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.pokedex-title {
+  font-size: 2.1rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px #222;
+  color: #fff945;
+  margin: 12px 0 16px 0;
+  font-family: 'Press Start 2P', 'VT323', Arial, sans-serif;
+}
+/* Pokeball knapp ""Who's that Pokémon?" */
+.pokeball-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.pokeball-btn::before,
+.pokeball-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.pokeball-btn::before {
+  background: linear-gradient(to bottom, #ee0f23 50%, #fff 50%);
+  border: 2.5px solid #222;
+  box-shadow: 0 2px 8px #4445;
+}
+.pokeball-btn::after {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 2.5px solid #222;
+  left: 14px;
+  top: 14px;
+  z-index: 2;
+  box-shadow: 0 0 0 2px #eee;
+}
+.pokeball-btn:active::after {
+  background: #ffc;
+}
+/* Søkefelt */
+#search {
+  border: 2.5px solid #2a75bb;
+  background: #fffef5;
+  font-size: 1.13em;
+  border-radius: 9px;
+  padding: 7px 15px;
+  width: 340px;
+  max-width: 92vw;
+  letter-spacing: 2px;
+  outline: none;
+  font-family: inherit;
+  margin-bottom: 3px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+.pokemon-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.poke-card {
+  background: #ffcb05;
+  border: 3px solid #3b4cca;
+  border-radius: 18px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 7px 24px #2a75bb33;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 13px;
+  position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.17s, transform 0.1s;
+  box-sizing: border-box;
+}
+.poke-card:hover {
+  box-shadow: 0 10px 35px #2228;
+  transform: scale(1.01);
+  z-index: 2;
+}
+.poke-card img {
+  width: 80px;
+  background: #fff;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+.poke-card .poke-id {
+  position: absolute;
+  top: 7px;
+  right: 20px;
+  font-size: 0.81em;
+  color: #3c3c3c77;
+  text-shadow: 1px 1px #fff6;
+}
+.poke-card .poke-name {
+  font-size: 1.2em;
+  color: #3b4cca;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0 0 5px 0;
+}
+.poke-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+  margin: 0 0 4px 0;
+  word-break: break-word;
+  justify-content: flex-start;
+}
+.type-chip {
+  border-radius: 7px;
+  padding: 2px 7px;
+  font-size: 0.89em;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px #3336;
+  margin-bottom: 3px;
+}
+.loader {
+  margin: 42px auto 20px auto;
+  width: 56px;
+  height: 56px;
+  border: 7px solid #ffcb056e;
+  border-top: 7px solid #3b4cca;
+  border-radius: 50%;
+  animation: spin 1.07s linear infinite;
+  display: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+#error-msg {
+  color: #c9000b;
+  text-align: center;
+  font-size: 1.13em;
+  min-height: 24px;
+  margin: 0.4em 0 1.1em 0;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(40, 40, 40, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 18px;
+  page-break-inside: avoid;
+  overflow: auto;
+}
+.hidden {
+  display: none !important;
+}
+.modal-content {
+  background: #e2eafc;
+  border: 4px solid #2a75bb;
+  border-radius: 16px;
+  max-width: 98vw;
+  width: 410px;
+  box-sizing: border-box;
+  padding: 22px 18px 18px 18px;
+  position: relative;
+  font-family: inherit;
+  text-align: center;
+  max-height: 92vh;
+  overflow-y: visible;
+  margin: auto;
+}
+.modal-close {
+  position: absolute;
+  right: 13px;
+  top: 9px;
+  font-size: 1.35em;
+  background: none;
+  border: none;
+  color: #2a75bb;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* "Who's that Pokémon" og Silhuett */
+.whos-img-bg {
+  background: #fff;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin: 0 auto 14px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 40px #01a3e644;
+  position: relative;
+}
+.whos-silhouette {
+  filter: brightness(0) saturate(140%) contrast(230%);
+  width: 112px;
+  height: auto;
+  display: block;
+  background: none;
+}
+.whos-hint {
+  font-size: 1.19em;
+  letter-spacing: 0.8px;
+  color: #265399;
+  margin: 18px 0 9px 0;
+  font-weight: bold;
+  text-shadow: 1px 1.5px #fff2;
+}
+.reveal-btn {
+  display: inline-block;
+  font-family: 'Press Start 2P';
+  background: #e32665;
+  color: #fff945;
+  border: 2px solid #2a75bb;
+  border-radius: 13px;
+  font-size: 1em;
+  padding: 7px 20px;
+  margin: 0.7em 0 0.3em 0;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 15px #0158cf6b;
+  transition: background 0.13s;
+}
+.reveal-btn:hover {
+  background: #ff3c6d;
+}
+/* Detaljkort/modalen: bilde og stats */
+.modal-content img {
+  width: 84px;
+  max-width: 90vw;
+  margin-bottom: 9px;
+  border-radius: 12px;
+}
+.stat-table {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin: 0 auto 10px auto;
+  justify-content: center;
+}
+.stat-cell {
+  background: #e1f0ff;
+  border-radius: 6px;
+  padding: 3px 6px 3px 6px;
+  margin: 0;
+  font-size: 0.93em;
+  text-align: left;
+  width: 88px;
+  box-sizing: border-box;
+  min-width: 64px;
+}
+.stats-bar {
+  background: #3b4cca;
+  height: 8px;
+  border-radius: 4px;
+  margin: 2px 0 0 0;
+  width: 100%;
+}
+.stats-bar-fill {
+  background: #ffcb05;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.type-matchup-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  font-size: 0.92em;
+}
+.type-matchup-row > div {
+  min-width: 84px;
+  margin-bottom: 2px;
+  word-break: break-word;
+  white-space: normal;
+  display: block;
+}
+.type-matchup-row {
+  width: 100%;
+}
+.type-matchup-row b {
+  display: block;
+  margin-bottom: 1px;
+  font-weight: 600;
+  font-size: 0.94em;
+}
+/* Mobiljustering modal */
+@media (max-width: 600px) {
+  .modal-content img {
+    width: 60px;
+    max-width: 93vw;
+    margin-bottom: 8px;
+  }
+  .stat-table {
+    gap: 2px 3px;
+    font-size: 0.94em;
+  }
+  .stat-cell {
+    width: 71px;
+    font-size: 0.89em;
+    padding: 2px 3px 1.5px 3px;
+  }
+}
+/* Scroll til toppen knapp */
+#scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 22px;
+  z-index: 200;
+  background: #3b4cca;
+  color: #fff945;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.9em;
+  box-shadow: 0 4px 20px #2227;
+  cursor: pointer;
+  display: none;
+  transition: background 0.19s, opacity 0.2s;
+}
+#scroll-top-btn:hover {
+  background: #254094;
+}
+@media (max-width: 640px) {
+  #scroll-top-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.5em;
+    right: 11px;
+    bottom: 18px;
+  }
+}

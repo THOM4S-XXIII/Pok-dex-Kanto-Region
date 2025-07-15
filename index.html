@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex Kanto Region</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <!-- Header: Tittel, pokeball knapp og søk -->
+      <header>
+        <h1 class="pokedex-title">Pokédex</h1>
+        <button
+          id="random-btn"
+          class="pokeball-btn"
+          title="Who's that Pokémon?"
+        ></button>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search Pokémon"
+          autocomplete="off"
+        />
+      </header>
+      <!-- Pokémon-listen vises her -->
+      <section id="pokemon-list" class="pokemon-list-vertical"></section>
+      <!-- Loader/spinner for lasting -->
+      <div class="loader" id="loader"></div>
+      <!-- Modal for "Who's that Pokémon?" -->
+      <div id="whos-modal" class="modal hidden"></div>
+      <!-- Modal for detaljer -->
+      <div id="details-modal" class="modal hidden"></div>
+      <!-- Feilmeldingsfelt -->
+      <div id="error-msg"></div>
+    </main>
+    <!-- Scroll til toppen knapp -->
+    <button id="scroll-top-btn" title="Scroll to top">↑</button>
+    <script src="script.js"></script>
+  </body>
+</html>
